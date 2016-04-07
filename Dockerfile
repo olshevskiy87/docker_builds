@@ -9,7 +9,12 @@ RUN apt-get -y install \
 
 RUN mkdir /git
 RUN git clone git://git.postgresql.org/git/postgresql.git /git/postgresql
+
 WORKDIR /git/postgresql
 RUN ./configure
+RUN make
+RUN make install
+
+WORKDIR /git/postgresql/contrib
 RUN make
 RUN make install
