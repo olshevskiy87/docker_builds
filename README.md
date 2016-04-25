@@ -5,5 +5,5 @@ Usage
 -----
 
 ```bash
-$ docker build -t debian:latest .
+$ docker build -t pg_build_docker .
 ```
