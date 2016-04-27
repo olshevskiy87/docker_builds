@@ -29,15 +29,6 @@ COPY pg.sh ${HOME}/
 
 RUN git clone git://git.postgresql.org/git/postgresql.git ${PGGIT}
 
-WORKDIR ${PGGIT}
-RUN ./configure --prefix=${PGROOT}
-RUN make
-RUN make install
-
-WORKDIR ${PGGIT}/contrib
-RUN make
-RUN make install
-
 WORKDIR ${HOME}
 ENV PATH ${PGROOT}/bin:${PATH}
 RUN echo "alias ll='ls -la --color'" > ${HOME}/.bashrc

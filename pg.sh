@@ -83,6 +83,12 @@ case $1 in
         ./configure --prefix=${PGDATA}
         make
         make install
+
+        if [[ "$2" == "all" ]]; then
+            cd ${PGGIT}/contrib
+            make
+            make install
+        fi
         ;;
 
     "init")
