@@ -13,14 +13,10 @@ ENV PGROOT /pgsql
 ENV PGDATA ${PGROOT}/data
 ENV PGUSER postgres
 
-RUN useradd -m postgres
-RUN echo "postgres:postgres" | chpasswd
-RUN adduser postgres sudo
+RUN useradd -m postgres && echo "postgres:postgres" | chpasswd && adduser postgres sudo
 
-RUN mkdir -p ${PGGIT}
-RUN chown -R postgres ${PGGIT}
-RUN mkdir ${PGROOT}
-RUN chown -R postgres ${PGROOT}
+RUN mkdir -p ${PGGIT} && chown -R postgres ${PGGIT}
+RUN mkdir ${PGROOT} && chown -R postgres ${PGROOT}
 
 USER postgres
 ENV HOME /home/postgres
