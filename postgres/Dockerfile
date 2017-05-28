@@ -6,7 +6,7 @@ RUN apt-get -y install \
     git vim sudo \
     flex bison libreadline-dev libkrb5-dev libxml2-dev \
     libxslt1-dev libldap2-dev tcl-dev libperl-dev python-dev \
-    libpq-dev
+    libpq-dev gettext
 
 ENV PGGIT /git/pgsql
 ENV PGROOT /pgsql
